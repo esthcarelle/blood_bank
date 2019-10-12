@@ -28,7 +28,7 @@ public class Informations extends AppCompatActivity {
         editLocation=(EditText) findViewById(R.id.locationEditText) ;
         editName=(EditText) findViewById(R.id.nameEditText) ;
 
-        String[] items = new String[]{"A", "B", "A+","B+","AB","AB+","O"};
+        String[] items = new String[]{"A", "B", "A+","B+","AB","AB+","O+","O-"};
         Spinner dropdown = findViewById(R.id.spinner1);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);

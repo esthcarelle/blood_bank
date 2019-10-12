@@ -23,16 +23,7 @@
         android:padding="5dp"
         android:hint="Enter location"
         android:layout_centerHorizontal="true" />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bloodTypeEditText"
-        android:background="@color/colorTextIcons"
 
-        android:layout_marginBottom="10dp"
-        android:padding="5dp"
-        android:hint="Enter your blood type"
-        android:layout_centerHorizontal="true" />
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
