@@ -16,8 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Informations"></activity>
-        <activity android:name=".Givers"></activity>
+        <activity android:name=".Informations">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity">
+            </meta-data>
+        </activity>
+        <activity android:name=".Givers">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Informations">
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>
