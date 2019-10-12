@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-
+        android:layout_marginTop="170dp"
         android:layout_marginBottom="10dp"
         android:background="@color/colorTextIcons"
         android:hint="Enter your name"
@@ -18,7 +18,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/locationEditText"
         android:background="@color/colorTextIcons"
-
         android:layout_marginBottom="10dp"
         android:padding="5dp"
         android:hint="Enter location"
