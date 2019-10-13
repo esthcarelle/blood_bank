@@ -32,9 +32,6 @@ public class Informations extends AppCompatActivity {
         Spinner dropdown = findViewById(R.id.spinner1);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
-
-
-
         mAddInfos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
