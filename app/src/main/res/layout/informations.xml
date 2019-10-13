@@ -12,7 +12,6 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/alex_brush"
         android:text="Add your informations"
-
         android:textSize="20sp" />
 
     <EditText
@@ -26,6 +25,7 @@
         android:background="@color/colorTextIcons"
         android:hint="Enter your name"
         android:padding="5dp" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +33,6 @@
         android:color="@color/colorTextIcons"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="120dp"
-
         android:padding="5dp"
         android:hint="Enter location"
         android:layout_centerHorizontal="true" />
@@ -46,6 +45,7 @@
         android:padding="5dp"
         android:text="Add your blood type:"
         android:layout_centerHorizontal="true"
+
 
         />
 
