@@ -17,13 +17,12 @@ public class Givers extends AppCompatActivity {
     private String[] giversA = new String[] {"James", "Kate",
             "Kylie", "Jenner", "Luc Lac", "Sweet Bae",
             "Wil Biz", "Rachel", "Grace", "Alice",
-            "Raissa", "Flower", "Kimba",
+            "Raissa", "Flower", "Kimbagira",
             "Eliane", "Nicole"};
     private String[] giversB=new String[] {"odette","diane","mimi","grace","cates","Ange","blandine","benedicte","flower","lubega"};
     private String[] giversC=new String[] {"Carrelle","Peter","Paul","Mary","sylvie","rachel","Timothee","philippe","matthew","nicole","love","confiance"};
 @Override
 protected void onCreate(Bundle savedInstanceState) {
-
 
     super.onCreate(savedInstanceState);
     setContentView(R.layout.givers);
