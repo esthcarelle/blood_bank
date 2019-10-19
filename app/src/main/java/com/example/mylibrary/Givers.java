@@ -6,79 +6,97 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Givers extends AppCompatActivity {
-    private TextView mBloodTextView;
-    private ListView mListView;
-    private String[] giversA = new String[] {"James", "Kate",
-            "Kylie", "Jenner", "Luc Lac", "Sweet Bae",
-            "Wil Biz", "Rachel", "Grace", "Alice",
-            "Raissa", "Flower", "Kimbagira",
-            "Eliane", "Nicole"};
-    private String[] giversB=new String[] {"odette","diane","mimi","grace","cates","Ange","blandine","benedicte","flower","lubega"};
-    private String[] giversC=new String[] {"Carrelle","Peter","Paul","Mary","sylvie","rachel","Timothee","philippe","matthew","nicole","love","confiance"};
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.givers);
-    Intent intent = getIntent();
-    mBloodTextView = (TextView) findViewById(R.id.bloodTextView);
-    String location = intent.getStringExtra("location");
-    String name = intent.getStringExtra("name");
-    String blood = intent.getStringExtra("blood");
-    System.out.println(blood);
-    mBloodTextView.setText("Here are people with blood type : " + blood);
-    mListView = (ListView) findViewById(R.id.listView);
-    if(blood.equals("A")){
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, giversA);
-        mListView.setAdapter(adapter);
-    }
-    else if(blood.equals("B")){
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, giversB);
-        mListView.setAdapter(adapter);
-    }
-    else if(blood.equals("A+")){
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, giversC);
-        mListView.setAdapter(adapter);
-    }
-    else if(blood.equals("B+")){
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, giversA);
-        mListView.setAdapter(adapter);
-    }
-    else if(blood.equals("AB")){
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, giversB);
-        mListView.setAdapter(adapter);
-    }
-    else if(blood.equals("AB+")){
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, giversC);
-        mListView.setAdapter(adapter);
-    }
-    else if(blood.equals("O+")){
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, giversA);
-        mListView.setAdapter(adapter);
-    }
-    else if(blood.equals("O-")){
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, giversB);
-        mListView.setAdapter(adapter);
-    }
-    mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            String giver = ((TextView)view).getText().toString();
-            Toast.makeText(Givers.this, giver, Toast.LENGTH_LONG).show();
-        }
-    });
 
 
+    @BindView(R.id.recyclerView)
+    RecyclerView mRecyclerView;
+    @BindView(R.id.errorTextView) TextView mErrorTextView;
+    @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
+    private GiverListAdapter mAdapter;
 
+    public List<Business> restaurants;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.givers);
+        ButterKnife.bind(this);
+
+        Intent intent = getIntent();
+        String location = intent.getStringExtra("location");
+
+        YelpApi client = YelpClient.getClient();
+
+        Call<YelpBloodBank> call = client.getBloodGivers(location, "blood");
+
+        call.enqueue(new Callback<YelpBloodBank>() {
+            @Override
+            public void onResponse(Call<YelpBloodBank> call, Response<YelpBloodBank> response) {
+                hideProgressBar();
+
+                if (response.isSuccessful()) {
+                    restaurants = response.body().getBusinesses();
+                    mAdapter = new GiverListAdapter(Givers.this, restaurants);
+                    mRecyclerView.setAdapter(mAdapter);
+                    RecyclerView.LayoutManager layoutManager =
+                            new LinearLayoutManager(Givers.this);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setHasFixedSize(true);
+
+                    showRestaurants();
+                } else {
+                    showUnsuccessfulMessage();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<YelpBloodBank> call, Throwable t) {
+                hideProgressBar();
+                showFailureMessage();
+            }
+
+        });
+    }
+
+    private void showFailureMessage() {
+        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showUnsuccessfulMessage() {
+        mErrorTextView.setText("Something went wrong. Please try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showRestaurants() {
+        mRecyclerView.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        mProgressBar.setVisibility(View.GONE);
+    }
 }
 
 
-}
+
+
+
