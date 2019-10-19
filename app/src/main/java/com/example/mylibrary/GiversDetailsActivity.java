@@ -25,10 +25,10 @@ public class GiversDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.center_detail);
         ButterKnife.bind(this);
 
-        mRestaurants = Parcels.unwrap(getIntent().getParcelableExtra("restaurants"));
+        mGivers = Parcels.unwrap(getIntent().getParcelableExtra("restaurants"));
         int startingPosition = getIntent().getIntExtra("position", 0);
 
-        adapterViewPager = new GiverPagerAdapter(getSupportFragmentManager(),  mRestaurants);
+        adapterViewPager = new GiverPagerAdapter(getSupportFragmentManager(),  mGivers);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
     }
