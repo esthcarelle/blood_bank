@@ -54,8 +54,8 @@ public class Givers extends AppCompatActivity {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    restaurants = response.body().getBusinesses();
-                    mAdapter = new GiverListAdapter(Givers.this, restaurants);
+                    givers = response.body().getBusinesses();
+                    mAdapter = new GiverListAdapter(Givers.this, givers);
                     mRecyclerView.setAdapter(mAdapter);
                     RecyclerView.LayoutManager layoutManager =
                             new LinearLayoutManager(Givers.this);
