@@ -33,7 +33,7 @@ public class Givers extends AppCompatActivity {
 
     private GiverListAdapter mAdapter;
 
-    public List<Business> restaurants;
+    public List<Business> givers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
