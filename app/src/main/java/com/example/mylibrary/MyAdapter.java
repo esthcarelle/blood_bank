@@ -18,7 +18,7 @@ public class MyAdapter extends ArrayAdapter {
     public Object getItem(int position) {
         String restaurant = mRestaurants[position];
         String cuisine = mCuisines[position];
-        return String.format("%s \nServes great: %s", restaurant, cuisine);
+        return String.format("%s \n at: %s", restaurant, cuisine);
     }
 
     @Override
