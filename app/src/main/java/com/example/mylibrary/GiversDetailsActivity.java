@@ -17,7 +17,7 @@ public class GiversDetailsActivity extends AppCompatActivity {
     @BindView(R.id.viewPager)
     ViewPager mViewPager;
     private GiverPagerAdapter adapterViewPager;
-    List<Business> mRestaurants;
+    List<Business> mGivers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
