@@ -5,24 +5,24 @@ import android.widget.ArrayAdapter;
 
 public class MyAdapter extends ArrayAdapter {
     private Context mContext;
-    private String[] mRestaurants;
-    private String[] mCuisines;
+    private String[] mGivers;
+    private String[] mCenter;
 
-    public MyAdapter(Context mContext, int resource, String[] mRestaurants, String[] mCuisines) {
+    public MyAdapter(Context mContext, int resource, String[] mGivers, String[] mCenter) {
         super(mContext, resource);
         this.mContext = mContext;
-        this.mRestaurants = mRestaurants;
-        this.mCuisines = mCuisines;
+        this.mGivers = mGivers;
+        this.mCenter = mCenter;
     }
     @Override
     public Object getItem(int position) {
-        String restaurant = mRestaurants[position];
-        String cuisine = mCuisines[position];
-        return String.format("%s \n at: %s", restaurant, cuisine);
+        String giver = mGivers[position];
+        String center = mCenter[position];
+        return String.format("%s \n at: %s", giver, center);
     }
 
     @Override
     public int getCount() {
-        return mRestaurants.length;
+        return mGivers.length;
     }
 }
