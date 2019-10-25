@@ -18,7 +18,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 public class GiverListAdapter extends RecyclerView.Adapter<GiverListAdapter.GiverViewHolder> {
     private List<Business> mGivers;
     private Context mContext;
