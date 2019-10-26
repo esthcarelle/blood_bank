@@ -13,24 +13,35 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
     private Button getStartedButton;
-    @BindView(R.id.savedRestaurantsButton) Button mSavedRestaurantsButton;
+    private Button mSavedRestaurantsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 
+
         setContentView(R.layout.activity_main);
-        mSavedRestaurantsButton.setOnClickListener(this);
+
         getStartedButton=(Button) findViewById(R.id.getStarted);
         getStartedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(intent);
+            }
+        });
+        mSavedRestaurantsButton=(Button) findViewById(R.id.savedButton);
+        mSavedRestaurantsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SavedCentersListActivity.class);
+                startActivity(intent);
+
             }
         });
 
@@ -57,13 +68,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
         finish();
     }
-    @Override
-    public void onClick(View v) {
 
-
-        if (v == mSavedRestaurantsButton) {
-            Intent intent = new Intent(MainActivity.this, SavedCentersListActivity.class);
-            startActivity(intent);
-        }
-    }
 }
