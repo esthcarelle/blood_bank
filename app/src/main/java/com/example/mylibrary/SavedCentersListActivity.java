@@ -39,7 +39,7 @@ public class SavedCentersListActivity extends AppCompatActivity {
     private void setUpFirebaseAdapter(){
         FirebaseRecyclerOptions<Business> options =
                 new FirebaseRecyclerOptions.Builder<Business>()
-                        .setQuery(mRestaurantReference, Business.class)
+                        .setQuery(mRestaurantReference,Business.class)
                         .build();
 
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Business, FirebaseBloodViewHolder>(options) {
