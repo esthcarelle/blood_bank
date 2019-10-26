@@ -6,9 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -19,7 +22,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class GiverDetailFragment extends Fragment {
+public class GiverDetailFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.giverImageView)
     ImageView mImageLabel;
     @BindView(R.id.giverNameTextView)
@@ -74,7 +77,20 @@ public class GiverDetailFragment extends Fragment {
         mRatingLabel.setText(Double.toString(mRestaurant.getRating()) + "/5");
         mPhoneLabel.setText(mRestaurant.getPhone());
         mAddressLabel.setText(mRestaurant.getLocation().toString());
+        mSaveRestaurantButton.setOnClickListener(this);
+
 
         return view;
     }
+    @Override
+    public void onClick(View v) {
+        if (v == mSaveRestaurantButton) {
+            DatabaseReference restaurantRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_CENTERS);
+            restaurantRef.push().setValue(mRestaurant);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

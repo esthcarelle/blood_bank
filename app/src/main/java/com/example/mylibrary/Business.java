@@ -56,6 +56,9 @@ public class Business {
     @SerializedName("distance")
     @Expose
     private Double distance;
+    @SerializedName("pushId")
+    @Expose
+    private String pushId;
 
     /**
      * No args constructor for use in serialization
@@ -219,6 +222,14 @@ public class Business {
 
     public void setDistance(Double distance) {
         this.distance = distance;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
 }

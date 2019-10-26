@@ -43,6 +43,7 @@ public class Givers extends AppCompatActivity {
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
+        System.out.println(location);
 
         YelpApi client = YelpClient.getClient();
 
