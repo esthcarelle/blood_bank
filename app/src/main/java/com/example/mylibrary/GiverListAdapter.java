@@ -60,11 +60,11 @@ public class GiverListAdapter extends RecyclerView.Adapter<GiverListAdapter.Give
             itemView.setOnClickListener(this);
         }
 
-        public void bindRestaurant(Business restaurant) {
-            Picasso.get().load(restaurant.getImageUrl()).into(mRestaurantImageView);
-            mNameTextView.setText(restaurant.getName());
-            mCategoryTextView.setText(restaurant.getCategories().get(0).getTitle());
-            mRatingTextView.setText("Rating: " + restaurant.getRating() + "/5");
+        public void bindRestaurant(Business center) {
+            Picasso.get().load(center.getImageUrl()).into(mRestaurantImageView);
+            mNameTextView.setText(center.getName());
+            mCategoryTextView.setText(center.getCategories().get(0).getTitle());
+            mRatingTextView.setText("Rating: " + center.getRating() + "/5");
         }
         @Override
         public void onClick(View v) {

@@ -40,16 +40,16 @@ public class GiverDetailFragment extends Fragment implements View.OnClickListene
     @BindView(R.id.saveRestaurantButton)
     TextView mSaveRestaurantButton;
 
-    private Business mRestaurant;
+    private Business mCenter;
 
     public GiverDetailFragment() {
         // Required empty public constructor
     }
 
-    public static GiverDetailFragment newInstance(Business restaurant) {
+    public static GiverDetailFragment newInstance(Business center) {
         GiverDetailFragment restaurantDetailFragment = new GiverDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("restaurant", Parcels.wrap(restaurant));
+        args.putParcelable("restaurant", Parcels.wrap(center));
         restaurantDetailFragment.setArguments(args);
         return restaurantDetailFragment;
     }
@@ -57,7 +57,7 @@ public class GiverDetailFragment extends Fragment implements View.OnClickListene
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mRestaurant = Parcels.unwrap(getArguments().getParcelable("restaurant"));
+        mCenter = Parcels.unwrap(getArguments().getParcelable("restaurant"));
     }
 
     @Override
@@ -65,18 +65,18 @@ public class GiverDetailFragment extends Fragment implements View.OnClickListene
         View view = inflater.inflate(R.layout.giver_fragment, container, false);
         ButterKnife.bind(this, view);
 
-        Picasso.get().load(mRestaurant.getImageUrl()).into(mImageLabel);
+        Picasso.get().load(mCenter.getImageUrl()).into(mImageLabel);
         List<String> categories = new ArrayList<>();
 
-        for (Category category: mRestaurant.getCategories()) {
+        for (Category category: mCenter.getCategories()) {
             categories.add(category.getTitle());
         }
 
-        mNameLabel.setText(mRestaurant.getName());
+        mNameLabel.setText(mCenter.getName());
         mCategoriesLabel.setText(android.text.TextUtils.join(", ", categories));
-        mRatingLabel.setText(Double.toString(mRestaurant.getRating()) + "/5");
-        mPhoneLabel.setText(mRestaurant.getPhone());
-        mAddressLabel.setText(mRestaurant.getLocation().toString());
+        mRatingLabel.setText(Double.toString(mCenter.getRating()) + "/5");
+        mPhoneLabel.setText(mCenter.getPhone());
+        mAddressLabel.setText(mCenter.getLocation().toString());
         mSaveRestaurantButton.setOnClickListener(this);
 
 
@@ -88,7 +88,7 @@ public class GiverDetailFragment extends Fragment implements View.OnClickListene
             DatabaseReference restaurantRef = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_CENTERS);
-            restaurantRef.push().setValue(mRestaurant);
+            restaurantRef.push().setValue(mCenter);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
