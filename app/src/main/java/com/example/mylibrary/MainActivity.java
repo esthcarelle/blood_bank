@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     private Button getStartedButton;
-    private Button mSavedRestaurantsButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        mSavedRestaurantsButton=(Button) findViewById(R.id.savedButton);
-        mSavedRestaurantsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SavedCentersListActivity.class);
-                startActivity(intent);
 
-            }
-        });
 
     }
     @Override

@@ -21,6 +21,7 @@ public class Informations extends AppCompatActivity {
     private Spinner editBlood;
 
     private DatabaseReference mNewInfos;
+    private Button mSavedRestaurantsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,15 @@ public class Informations extends AppCompatActivity {
             }
 
 
+        });
+        mSavedRestaurantsButton=(Button) findViewById(R.id.savedButton);
+        mSavedRestaurantsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Informations.this, SavedCentersListActivity.class);
+                startActivity(intent);
+
+            }
         });
 
 
