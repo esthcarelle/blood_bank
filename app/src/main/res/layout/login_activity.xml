@@ -72,7 +72,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
         android:fontFamily="@font/annie_use_your_telescope"
         android:text="Login"
         android:textColor="@color/colorPrimaryLight"
