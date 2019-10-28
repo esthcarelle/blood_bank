@@ -38,13 +38,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog mAuthProgressDialog;
     private String mName;
-    @BindView(R.id.passwordLoginButton) Button mPasswordLoginButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
-        mPasswordLoginButton.setOnClickListener(this);
+
 
         mLoginTextView.setOnClickListener(this);
         mCreateUserButton.setOnClickListener(this);
@@ -162,11 +162,11 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         }
         return true;
     }
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        mAuth.addAuthStateListener(mAuthListener);
-//    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
     @Override
     public void onStop() {
         super.onStop();
