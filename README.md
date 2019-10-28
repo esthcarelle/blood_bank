@@ -12,12 +12,12 @@ An Online android app for blood givers and blood searchers
 * You should have all the project files.
 
 ##  Screenshot
-![ScreenShot]( app/src/main/res/drawable/1.png)
-![ScreenShot]( app/src/main/res/drawable/2.png)
-![ScreenShot]( app/src/main/res/drawable/3.png)
-![ScreenShot]( app/src/main/res/drawable/4.png)
-![ScreenShot]( app/src/main/res/drawable/5.png)
-![ScreenShot]( app/src/main/res/drawable/6.png)
+![ScreenShot]( app/src/main/res/drawable/s1.png)
+![ScreenShot]( app/src/main/res/drawable/s2.png)
+![ScreenShot]( app/src/main/res/drawable/s3.png)
+![ScreenShot]( app/src/main/res/drawable/s4.png)
+![ScreenShot]( app/src/main/res/drawable/s5.png)
+![ScreenShot]( app/src/main/res/drawable/s6.png)
 
 
 
