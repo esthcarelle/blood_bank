@@ -10,6 +10,17 @@ An Online android app for blood givers and blood searchers
 * Click on the green button labeled: clone or download. you can clone or download it directly into your computer.
 * Unzip the folder.
 * You should have all the project files.
+
+##  Screenshot
+![ScreenShot](1.png)
+![ScreenShot](2.png)
+![ScreenShot](3.png)
+![ScreenShot](4.png)
+![ScreenShot](5.png)
+![ScreenShot](6.png)
+
+
+
 ## BDD
 * The user will signup for an account.
 * The user will be able to login using his/her credentials.
