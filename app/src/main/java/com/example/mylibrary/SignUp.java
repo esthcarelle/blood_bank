@@ -162,11 +162,11 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         }
         return true;
     }
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        mAuth.addAuthStateListener(mAuthListener);
+//    }
     @Override
     public void onStop() {
         super.onStop();
