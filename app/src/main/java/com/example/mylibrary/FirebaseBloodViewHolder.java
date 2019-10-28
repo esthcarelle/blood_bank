@@ -30,6 +30,7 @@ public class FirebaseBloodViewHolder extends RecyclerView.ViewHolder implements 
         itemView.setOnClickListener(this);
     }
 
+
     public void bindRestaurant(Business restaurant) {
         ImageView restaurantImageView = (ImageView) mView.findViewById(R.id.restaurantImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.giverNameTextView);
