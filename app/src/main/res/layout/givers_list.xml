@@ -22,7 +22,7 @@
             android:id="@+id/giverNameTextView"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:text="Restaurant Name"
+            android:text="Giver Name"
             android:textColor="@color/colorPrimary"/>
 
         <TextView
